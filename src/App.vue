@@ -1,10 +1,17 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <Navbar />
+  <router-view />
 </template>
+
+<script>
+import Navbar from "@/components/navbar.vue";
+export default {
+  name: "App",
+  components: {
+    Navbar,
+  },
+};
+</script>
 
 <style>
 #app {
@@ -23,8 +30,36 @@ nav a {
   font-weight: bold;
   color: #2c3e50;
 }
+nav a :hover {
+  font-weight: bold;
+  /* color: #ffffff; */
+  animation-name: colorchange;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+@keyframes colorchange {
+  0% {
+    color: red;
+  }
+  20% {
+    color: blue;
+  }
+  40% {
+    color: green;
+  }
+  60% {
+    color: yellow;
+  }
+  80% {
+    color: orange;
+  }
+  100% {
+    color: hotpink;
+  }
 }
 </style>
