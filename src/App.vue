@@ -1,6 +1,8 @@
 <template>
   <Navbar />
-  <router-view />
+  <div class="body">
+    <router-view />
+  </div>
 </template>
 
 <script>
@@ -14,6 +16,20 @@ export default {
 </script>
 
 <style>
+.body {
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url(https://i.postimg.cc/mg6pmJrt/plain2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: white;
+  min-height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,9 +44,9 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #64a8eb;
 }
-nav a :hover {
+nav .logs :hover {
   font-weight: bold;
   /* color: #ffffff; */
   animation-name: colorchange;

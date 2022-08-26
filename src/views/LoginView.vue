@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="body">
     <div class="login">
       <h2 class="login-header">Log in</h2>
       <form class="login-container">
         <p>
           <input
-            v-model="emal"
+            v-model="email"
             type="email"
             placeholder="Email"
             id="email"
@@ -22,14 +22,38 @@
         </p>
         <!-- <p><input type="submit" value="Log in" /></p> -->
         <p>
-          <button type="submit" @click.prevent="login">Log in</button>
+          <button type="submit" @click.prevent="login">
+            <!-- <router-link to="/about"> Log in </router-link> -->
+            Log in
+          </button>
         </p>
+        <p v-if="user" class="loged">you have loged in successfully</p>
       </form>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    login() {
+      this.$store.dispatch("login", {
+        email: this.email,
+        password: this.password,
+      });
+    },
+  },
+};
 </script>
 <style scoped>
 * {
@@ -37,37 +61,16 @@ export default {};
   margin: 0%;
   box-sizing: border-box;
 }
-body {
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url(https://i.postimg.cc/mg6pmJrt/plain2.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-  color: white;
-  min-height: 100vh;
+
+.body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-a.navbar-brand {
-  color: #e9ecef;
-}
-a.nav-link {
-  color: white;
-}
-.navbar-nav .nav-link.active,
-.navbar-nav .show > .nav-link {
-  color: #e9ecef;
-}
-/* .login {
-  border: solid 1px;
-} */
 
 .login {
   width: 400px;
-  margin: 16px auto;
+  /* margin: 0 auto; */
   font-size: 16px;
 }
 
@@ -165,5 +168,9 @@ a.nav-link {
 /* Buttons' focus effect */
 .login button[type="submit"]:focus {
   border-color: #05a;
+}
+
+.loged {
+  color: black;
 }
 </style>

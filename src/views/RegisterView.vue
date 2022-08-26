@@ -93,7 +93,7 @@
               <button type="submit" class="button">Register</button>
             </div>
           </form>
-          <div v-if="onlyShow">
+          <div v-if="user">
             <p>you have been successfully register</p>
           </div>
         </div>

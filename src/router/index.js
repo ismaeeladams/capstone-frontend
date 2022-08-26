@@ -22,9 +22,19 @@ const routes = [
     component: () => import("../views/RegisterView.vue"),
   },
   {
-    path: "/login",
+    path: "/users/login",
     name: "login",
     component: () => import("../views/LoginView.vue"),
+  },
+  {
+    path: "/review",
+    name: "review",
+    component: () => import("../views/ReviewView.vue"),
+  },
+  {
+    path: "/reservation",
+    name: "reservation",
+    component: () => import("../views/ReservationView.vue"),
   },
 ];
 

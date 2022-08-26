@@ -1,26 +1,34 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <router-link to="/"><i class="fa-solid fa-house"></i></router-link>
+        <div class="logs">
+          <router-link to="/"><i class="fa-solid fa-house"></i></router-link>
+        </div>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#nav"
-          aria-controls="nav"
+          data-bs-target="#navs"
+          aria-controls="navs"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="nav">
+        <div class="collapse navbar-collapse" id="navs">
           <div class="navbar-nav">
-            <!-- <router-link to="/">Home</router-link> -->
-            <a><router-link to="/about">About</router-link></a>
-            <a><router-link to="/register">Register</router-link></a>
-            <a><router-link to="/login">Login</router-link></a>
+            <div v-if="user" class="logs">
+              <router-link to="/about">About</router-link>
+              <router-link to="/review">Reviews</router-link>
+              <router-link to="/reservation">Reservations</router-link>
+            </div>
+            <div v-else class="logs">
+              <!-- <router-link to="/">Home</router-link> -->
+              <router-link to="/register">Register</router-link>
+              <router-link to="/users/login">Login</router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -28,7 +36,14 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    user() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
+    },
+  },
+};
 </script>
 <style scoped>
 * {
@@ -37,10 +52,11 @@ export default {};
 }
 nav {
   padding: 1rem;
+  background-color: transparent;
 }
 #nav {
   display: flex;
-  justify-content: end;
+  /* justify-content: end; */
 }
 .navbar-nav > * > * {
   padding: 0 0.5rem;
@@ -49,4 +65,8 @@ nav {
 i {
   font-size: 1.25rem;
 }
+/* #navs {
+  display: flex;
+  justify-content: end;
+} */
 </style>
