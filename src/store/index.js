@@ -14,6 +14,9 @@ export default createStore({
     setToken: (state, Token) => {
       state.Token = Token;
     },
+    // setUser: (state, user) => {
+    //   state.user = user;
+    // },
   },
   actions: {
     // Login
@@ -73,6 +76,21 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((json) => context.commit("setUser", json));
+      console.log("data");
+    },
+
+    // Review
+    reviews: async (context, payload) => {
+      fetch("http://localhost:8008/reviews", {
+        method: "POST",
+        body: JSON.stringify(payload),
+
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(() => context.commit("setUser", payload));
       console.log("data");
     },
   },

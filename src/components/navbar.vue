@@ -23,6 +23,7 @@
               <router-link to="/about">About</router-link>
               <router-link to="/review">Reviews</router-link>
               <router-link to="/reservation">Reservations</router-link>
+              <router-link to="/selectDate">Date Selection</router-link>
             </div>
             <div v-else class="logs">
               <!-- <router-link to="/">Home</router-link> -->

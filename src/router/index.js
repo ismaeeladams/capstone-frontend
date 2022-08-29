@@ -36,6 +36,11 @@ const routes = [
     name: "reservation",
     component: () => import("../views/ReservationView.vue"),
   },
+  {
+    path: "/selectDate",
+    name: "selectDate",
+    component: () => import("../views/dateView.vue"),
+  },
 ];
 
 const router = createRouter({
