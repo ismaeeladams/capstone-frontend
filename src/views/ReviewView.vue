@@ -317,6 +317,14 @@ export default {
       };
       this.$store.dispatch("reviews", payload);
     },
+    loopReview() {
+      let payload = {
+        name: this.name,
+        thumbnail_image: this.thumbnail_image,
+        review: this.review,
+      };
+      this.$store.dispatch("seeReview", payload);
+    },
   },
 };
 </script>

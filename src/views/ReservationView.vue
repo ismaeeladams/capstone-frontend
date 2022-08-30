@@ -3,7 +3,7 @@
     <div v-if="user">
       <h1>This is the reservation page</h1>
       <div class="stuff">
-        <div class="card" style="width: 18rem">
+        <div class="card" style="width: 21rem">
           <!-- <img
             src="https://picsum.photos/200/300?random=1"
             class="card-img-top"
@@ -38,7 +38,7 @@
               </div>
             </div>
             <button
-              class="carousel-control-prev"
+              class="carousel-control-prev bg-dark"
               type="button"
               data-bs-target="#carouselExampleControls"
               data-bs-slide="prev"
@@ -50,7 +50,7 @@
               <span class="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next"
+              class="carousel-control-next bg-dark"
               type="button"
               data-bs-target="#carouselExampleControls"
               data-bs-slide="next"
@@ -70,11 +70,11 @@
             </p>
             <div class="links">
               <a href="#" class="btn btn-primary">Go somewhere</a>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <router-link to="/selectDate"> Reserve </router-link>
             </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem">
+        <div class="card" style="width: 21rem">
           <!-- <img
             src="https://picsum.photos/200/300?random=2"
             class="card-img-top"
@@ -105,7 +105,7 @@
               </div>
             </div>
             <button
-              class="carousel-control-prev"
+              class="carousel-control-prev bg-dark"
               type="button"
               data-bs-target="#secando"
               data-bs-slide="prev"
@@ -117,7 +117,7 @@
               <span class="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next"
+              class="carousel-control-next bg-dark"
               type="button"
               data-bs-target="#secando"
               data-bs-slide="next"
@@ -137,11 +137,11 @@
             </p>
             <div class="links">
               <a href="#" class="btn btn-primary">Go somewhere</a>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <router-link to="/selectDate"> Reserve </router-link>
             </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem">
+        <div class="card" style="width: 21rem">
           <!-- <img
             src="https://picsum.photos/200/300?random=3"
             class="card-img-top"
@@ -172,7 +172,7 @@
               </div>
             </div>
             <button
-              class="carousel-control-prev"
+              class="carousel-control-prev bg-dark"
               type="button"
               data-bs-target="#third"
               data-bs-slide="prev"
@@ -184,7 +184,7 @@
               <span class="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next"
+              class="carousel-control-next bg-dark"
               type="button"
               data-bs-target="#third"
               data-bs-slide="next"
@@ -204,11 +204,11 @@
             </p>
             <div class="links">
               <a href="#" class="btn btn-primary">Go somewhere</a>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <router-link to="/selectDate"> Reserve </router-link>
             </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem">
+        <div class="card" style="width: 21rem">
           <!-- <img
             src="https://picsum.photos/200/300?random=4"
             class="card-img-top"
@@ -239,7 +239,7 @@
               </div>
             </div>
             <button
-              class="carousel-control-prev"
+              class="carousel-control-prev bg-dark"
               type="button"
               data-bs-target="#fourth"
               data-bs-slide="prev"
@@ -251,7 +251,7 @@
               <span class="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next"
+              class="carousel-control-next bg-dark"
               type="button"
               data-bs-target="#fourth"
               data-bs-slide="next"
@@ -271,11 +271,11 @@
             </p>
             <div class="links">
               <a href="#" class="btn btn-primary">Go somewhere</a>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <router-link to="/selectDate"> Reserve </router-link>
             </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem">
+        <div class="card" style="width: 21rem">
           <!-- <img
             src="https://picsum.photos/200/300?random=5"
             class="card-img-top"
@@ -306,7 +306,7 @@
               </div>
             </div>
             <button
-              class="carousel-control-prev"
+              class="carousel-control-prev bg-dark"
               type="button"
               data-bs-target="#fifth"
               data-bs-slide="prev"
@@ -318,7 +318,7 @@
               <span class="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next"
+              class="carousel-control-next bg-dark"
               type="button"
               data-bs-target="#fifth"
               data-bs-slide="next"
@@ -338,11 +338,11 @@
             </p>
             <div class="links">
               <a href="#" class="btn btn-primary">Go somewhere</a>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <router-link to="/selectDate"> Reserve </router-link>
             </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem">
+        <div class="card" style="width: 21rem">
           <!-- <img
             src="https://picsum.photos/200/300?random=6"
             class="card-img-top"
@@ -373,7 +373,7 @@
               </div>
             </div>
             <button
-              class="carousel-control-prev"
+              class="carousel-control-prev bg-dark"
               type="button"
               data-bs-target="#sixth"
               data-bs-slide="prev"
@@ -385,7 +385,7 @@
               <span class="visually-hidden">Previous</span>
             </button>
             <button
-              class="carousel-control-next"
+              class="carousel-control-next bg-dark"
               type="button"
               data-bs-target="#sixth"
               data-bs-slide="next"
@@ -405,7 +405,7 @@
             </p>
             <div class="links">
               <a href="#" class="btn btn-primary">Go somewhere</a>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <router-link to="/selectDate"> Reserve </router-link>
             </div>
           </div>
         </div>
@@ -437,6 +437,7 @@ export default {
 }
 .links {
   display: flex;
+  justify-content: space-evenly;
 }
 a {
   margin: 0 0.25rem;

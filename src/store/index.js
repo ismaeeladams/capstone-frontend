@@ -2,8 +2,6 @@ import { createStore } from "vuex";
 import router from "@/router";
 import createPeristedState from "vuex-persistedstate";
 
-
-
 export default createStore({
   state: {
     email: null,
@@ -18,7 +16,8 @@ export default createStore({
     setToken: (state, Token) => {
       state.Token = Token;
     },
-    Logout(state){ (state.user = ""), (state.Token = "");
+    Logout(state) {
+      (state.user = ""), (state.Token = "");
     },
   },
   actions: {
@@ -82,7 +81,7 @@ export default createStore({
       console.log("data");
     },
 
-    // Review
+    // Create Review 
     reviews: async (context, payload) => {
       fetch("http://localhost:8008/reviews", {
         method: "POST",
@@ -99,4 +98,19 @@ export default createStore({
   },
   modules: {},
   plugins: [createPeristedState()],
+
+  // Loop/show Review
+  seeReview: async (context, payload) => {
+    fetch("http://localhost:8008/reviews", {
+      method: "GET",
+      body: JSON.stringify(payload),
+
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then(() => context.commit("setUser", payload));
+    console.log("data");
+  },
 });

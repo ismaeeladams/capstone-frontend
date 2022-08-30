@@ -1,41 +1,41 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <div v-if="user">
-        <div class="logs">
-          <router-link to="/"><i class="fa-solid fa-house"></i></router-link>
-        </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navs"
-          aria-controls="navs"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <div class="logs">
+        <router-link to="/"><i class="fa-solid fa-house"></i></router-link>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navs"
+        aria-controls="navs"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div v-if="user">
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbar-nav">
-            <div  class="logs">
+            <div class="logs">
               <router-link to="/about">About</router-link>
               <router-link to="/review">Reviews</router-link>
               <router-link to="/reservation">Reservations</router-link>
-              <router-link to="/selectDate">Date Selection</router-link>
+              <!-- <router-link to="/selectDate">Date Selection</router-link> -->
               <button @click="Logout()">Logout</button>
             </div>
           </div>
         </div>
-          </div>
-            <div v-else class="logs">
-              <!-- <router-link to="/">Home</router-link> -->
-              <router-link to="/register">Register</router-link>
-              <router-link to="/users/login">Login</router-link>
-            </div>
-        </div>
-    </nav>
+      </div>
+      <div v-else class="logs">
+        <!-- <router-link to="/">Home</router-link> -->
+        <router-link to="/register">Register</router-link>
+        <router-link to="/users/login">Login</router-link>
+      </div>
+    </div>
+  </nav>
 </template>
 <script>
 export default {
@@ -49,8 +49,8 @@ export default {
     Logout() {
       this.$store.commit("Logout");
       this.$router.push("/");
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
