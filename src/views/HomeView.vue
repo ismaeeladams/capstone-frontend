@@ -1,11 +1,18 @@
 <template>
-  <div class="home">
+  <div class="home" v-if="user">
     <h1>This is the Home page!!!</h1>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+   computed: {
+    user() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
+    },
+  },
+};
 </script>
 
 <style scoped>

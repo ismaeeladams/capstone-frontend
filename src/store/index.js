@@ -1,4 +1,8 @@
 import { createStore } from "vuex";
+import router from "@/router";
+import createPeristedState from "vuex-persistedstate";
+
+
 
 export default createStore({
   state: {
@@ -14,9 +18,8 @@ export default createStore({
     setToken: (state, Token) => {
       state.Token = Token;
     },
-    // setUser: (state, user) => {
-    //   state.user = user;
-    // },
+    Logout(state){ (state.user = ""), (state.Token = "");
+    },
   },
   actions: {
     // Login
@@ -57,7 +60,7 @@ export default createStore({
           .then((res) => res.json())
           .then((data) => {
             context.commit("setUser", data);
-            // router.push("/users");
+            router.push("/");
             // console.log(data);
           });
       } else {
@@ -94,4 +97,6 @@ export default createStore({
       console.log("data");
     },
   },
+  modules: {},
+  plugins: [createPeristedState()],
 });
