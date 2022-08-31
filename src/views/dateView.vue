@@ -29,6 +29,7 @@
       :upper-limit="example2_to"
       :lower-limit="example2_from"
     />
+    <button><router-link to="/checkout">checkout plz</router-link></button>
   </div>
 </template>
 <script>

@@ -29,6 +29,19 @@
           </div>
         </div>
       </div>
+      <div v-else-if="user || admin">
+        <div class="collapse navbar-collapse" id="navs">
+          <div class="navbar-nav">
+            <div class="logs">
+              <!-- <router-link to="/about">About</router-link> -->
+              <router-link to="/users">Users Table</router-link>
+              <router-link to="/rooms">Rooms Table</router-link>
+              <!-- <router-link to="/selectDate">Date Selection</router-link> -->
+              <button @click="Logout()">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div v-else class="logs">
         <!-- <router-link to="/">Home</router-link> -->
         <router-link to="/register">Register</router-link>
@@ -41,6 +54,10 @@
 export default {
   computed: {
     user() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
+    },
+    admin() {
       console.log(this.$store.state.user);
       return this.$store.state.user;
     },

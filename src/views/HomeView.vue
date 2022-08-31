@@ -2,12 +2,22 @@
   <div class="home" v-if="user">
     <h1>This is the Home page!!!</h1>
   </div>
+  <div v-else-if="user || admin">
+    <h1>Welcome superior being</h1>
+  </div>
+  <div v-else>
+    <h1>plz log-in</h1>
+  </div>
 </template>
 
 <script>
 export default {
-   computed: {
+  computed: {
     user() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
+    },
+    admin() {
       console.log(this.$store.state.user);
       return this.$store.state.user;
     },

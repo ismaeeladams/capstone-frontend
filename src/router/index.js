@@ -41,6 +41,21 @@ const routes = [
     name: "selectDate",
     component: () => import("../views/dateView.vue"),
   },
+  {
+    path: "/checkout",
+    name: "checkout",
+    component: () => import("../views/CheckoutView.vue"),
+  },
+  {
+    path: "/users",
+    name: "users",
+    component: () => import("../views/UserAdminView.vue"),
+  },
+  {
+    path: "/rooms",
+    name: "rooms",
+    component: () => import("../views/RoomsAdminView.vue"),
+  },
 ];
 
 const router = createRouter({

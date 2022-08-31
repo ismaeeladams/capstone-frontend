@@ -8,10 +8,11 @@ export default createStore({
     password: null,
     user: null,
     Token: null,
+    admin: null,
   },
   mutations: {
-    setUser: (state, user) => {
-      state.user = user;
+    setUser: (state, user, admin) => {
+      state.user = user || admin;
     },
     setToken: (state, Token) => {
       state.Token = Token;
@@ -81,7 +82,7 @@ export default createStore({
       console.log("data");
     },
 
-    // Create Review 
+    // Create Review
     reviews: async (context, payload) => {
       fetch("http://localhost:8008/reviews", {
         method: "POST",
