@@ -18,7 +18,7 @@ export default {
       return this.$store.state.user;
     },
     user_type() {
-      return this.$store.state.user.user_tpye;
+      return this.$store.state.user.user_type;
     },
   },
 };
