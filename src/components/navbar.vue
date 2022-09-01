@@ -16,7 +16,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div v-if="user.user_type === 'user'">
+      <div v-if="user_type === 'user'">
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbars-nav">
             <div class="logs">
@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div v-else-if="user.user_type === 'admin'">
+      <div v-else-if="user_type === 'admin'">
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbars-nav">
             <div class="logs">
@@ -62,6 +62,10 @@ export default {
     user() {
       return this.$store.state.user;
       console.log(this.$store.state.user);
+      console.log(user?.user?.name);
+    },
+    user_type() {
+      return this.$store.state.user.user_type;
     },
   },
   methods: {
