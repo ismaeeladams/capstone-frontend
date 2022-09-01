@@ -16,7 +16,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div v-if="user.user_type === 'user'">
+      <div >
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbars-nav">
             <div class="logs">
@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div v-else-if="user.user_type === 'admin'">
+      <div >
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbars-nav">
             <div class="logs">
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div v-else>
+      <div >
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbars-nav">
             <div class="logs">
