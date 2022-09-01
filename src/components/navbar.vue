@@ -16,9 +16,9 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div v-if="user.user_type === user">
+      <div v-if="user.user_type === 'user'">
         <div class="collapse navbar-collapse" id="navs">
-          <div class="navbar-nav">
+          <div class="navbars-nav">
             <div class="logs">
               <router-link to="/about">About</router-link>
               <router-link to="/review">Reviews</router-link>
@@ -29,9 +29,9 @@
           </div>
         </div>
       </div>
-      <div v-else-if="user.user_type === admin">
+      <div v-else-if="user.user_type === 'admin'">
         <div class="collapse navbar-collapse" id="navs">
-          <div class="navbar-nav">
+          <div class="navbars-nav">
             <div class="logs">
               <!-- <router-link to="/about">About</router-link> -->
               <router-link to="/users">Users Table</router-link>
@@ -42,14 +42,14 @@
           </div>
         </div>
       </div>
-      <div v-else class="logs">
+      <div v-else>
         <div class="collapse navbar-collapse" id="navs">
-          <div class="navbar-nav">
+          <div class="navbars-nav">
             <div class="logs">
-        <!-- <router-link to="/">Home</router-link> -->
-        <router-link to="/register">Register</router-link>
-        <router-link to="/users/login">Login</router-link>
-        </div>
+              <!-- <router-link to="/">Home</router-link> -->
+              <router-link to="/register">Register</router-link>
+              <router-link to="/users/login">Login</router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -60,8 +60,8 @@
 export default {
   computed: {
     user() {
-      console.log(this.$store.state.user);
       return this.$store.state.user;
+      console.log(this.$store.state.user);
     },
   },
   methods: {
@@ -85,7 +85,7 @@ nav {
   display: flex;
   /* justify-content: end; */
 }
-.navbar-nav > * > * {
+.navbars-nav > * > * {
   padding: 0 0.5rem;
   text-decoration: none;
 }

@@ -4,13 +4,11 @@ import createPeristedState from "vuex-persistedstate";
 
 export default createStore({
   state: {
-    email: null,
-    password: null,
     user: null,
     Token: null,
   },
   mutations: {
-    setUser: (state, user, ) => {
+    setUser: (state, user) => {
       state.user = user;
     },
     setToken: (state, Token) => {
@@ -34,6 +32,7 @@ export default createStore({
     //   if (!userData.length) return alert("No user found");
     // },
     login: async (context, payload) => {
+      console.log(payload);
       let res = await fetch("http://localhost:8008/users/login", {
         method: "POST",
         headers: {
@@ -44,26 +43,26 @@ export default createStore({
           password: payload.password,
         }),
       });
-      let data = await res.json();
-      console.log(data);
-      if (data.token) {
-        context.commit("setToken", data.token);
+      let tokendata = await res.json();
+      console.log(tokendata);
+      if (tokendata.token) {
+        context.commit("setToken", tokendata.token);
         // Verify token
         //
         fetch("http://localhost:8008/users/users/verify", {
           headers: {
             "Content-Type": "application/json",
-            "x-auth-token": data.token,
+            "x-auth-token": `${tokendata.token}`,
           },
         })
           .then((res) => res.json())
-          .then((data) => {
-            context.commit("setUser", data);
-            router.push("/");
-            console.log(data);
+          .then((userdata) => {
+            context.commit("setUser", userdata.user);
+            // router.push("/");
+            // console.log(data);
           });
       } else {
-        alert(data);
+        alert(tokendata);
       }
     },
     // Register
@@ -96,8 +95,6 @@ export default createStore({
       console.log("data");
     },
   },
-  modules: {},
-  plugins: [createPeristedState()],
 
   // Loop/show Review
   seeReview: async (context, payload) => {
@@ -113,4 +110,6 @@ export default createStore({
       .then(() => context.commit("setUser", payload));
     console.log("data");
   },
+  modules: {},
+  plugins: [createPeristedState()],
 });
