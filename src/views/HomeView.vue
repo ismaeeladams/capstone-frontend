@@ -1,8 +1,8 @@
 <template>
-  <div class="home" v-if="user">
+  <div class="home" v-if="user.user_type === user">
     <h1>This is the Home page!!!</h1>
   </div>
-  <div v-else-if="user || admin">
+  <div v-else-if="user.user_type === admin">
     <h1>Welcome superior being</h1>
   </div>
   <div v-else>
@@ -14,11 +14,8 @@
 export default {
   computed: {
     user() {
-      console.log(this.$store.state.user);
-      return this.$store.state.user;
-    },
-    admin() {
-      console.log(this.$store.state.user);
+      // console.log(this.$store.state.user);
+      const admin = "user_type" 
       return this.$store.state.user;
     },
   },

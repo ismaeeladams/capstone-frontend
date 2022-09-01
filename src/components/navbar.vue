@@ -16,7 +16,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div v-if="user">
+      <div v-if="user.user_type === user">
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbar-nav">
             <div class="logs">
@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div v-else-if="user || admin">
+      <div v-else-if="user.user_type === admin">
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbar-nav">
             <div class="logs">
@@ -43,9 +43,15 @@
         </div>
       </div>
       <div v-else class="logs">
+        <div class="collapse navbar-collapse" id="navs">
+          <div class="navbar-nav">
+            <div class="logs">
         <!-- <router-link to="/">Home</router-link> -->
         <router-link to="/register">Register</router-link>
         <router-link to="/users/login">Login</router-link>
+        </div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -54,10 +60,6 @@
 export default {
   computed: {
     user() {
-      console.log(this.$store.state.user);
-      return this.$store.state.user;
-    },
-    admin() {
       console.log(this.$store.state.user);
       return this.$store.state.user;
     },

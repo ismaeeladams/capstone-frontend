@@ -8,11 +8,10 @@ export default createStore({
     password: null,
     user: null,
     Token: null,
-    admin: null,
   },
   mutations: {
-    setUser: (state, user, admin) => {
-      state.user = user || admin;
+    setUser: (state, user, ) => {
+      state.user = user;
     },
     setToken: (state, Token) => {
       state.Token = Token;
@@ -61,7 +60,7 @@ export default createStore({
           .then((data) => {
             context.commit("setUser", data);
             router.push("/");
-            // console.log(data);
+            console.log(data);
           });
       } else {
         alert(data);
