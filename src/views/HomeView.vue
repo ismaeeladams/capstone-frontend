@@ -1,11 +1,11 @@
 <template>
-  <div class="home" v-if="user === 'user'">
+  <div class="home" v-if="user_type === 'user'">
     <h1>This is the Home page!!!</h1>
   </div>
-  <div v-else-if="user === 'admin'">
+  <div v-else-if="user_type === 'admin'">
     <h1>Welcome superior being</h1>
   </div>
-  <div v-else>
+  <div v-else-if="user_type === null">
     <h1>plz log-in</h1>
   </div>
 </template>
@@ -17,9 +17,9 @@ export default {
       console.log(this.$store.state.user);
       return this.$store.state.user;
     },
-    user_type(){
-       return this.$store.state.user.user_tpye;
-    }
+    user_type() {
+      return this.$store.state.user.user_tpye;
+    },
   },
 };
 </script>
