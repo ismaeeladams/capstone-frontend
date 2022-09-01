@@ -50,7 +50,7 @@ export default {
       this.$store.dispatch("login", {
         email: this.email,
         password: this.password,
-      });
+      }); 
     },
   },
 };

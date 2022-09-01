@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div v-else-if="user_type === 'admin'">
+      <div v-else-if="user_type=== 'admin'">
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbars-nav">
             <div class="logs">
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div v-else>
+      <div v-else-if="user_type === null">
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbars-nav">
             <div class="logs">
@@ -58,22 +58,32 @@
 </template>
 <script>
 export default {
+  mounted(){
+ this.declareUserType()
+  },
   computed: {
     user() {
       return this.$store.state.user;
       console.log(this.$store.state.user);
       console.log(user?.user?.name);
     },
-    user_type() {
-      return this.$store.state.user.user_type;
-    },
+    user_type(){
+       return this.$store.state.user_type;
+    }
   },
   methods: {
     Logout() {
       this.$store.commit("Logout");
       this.$router.push("/");
     },
+    declareUserType(){
+      if(this.user){
+        this.$store.state.user_type = this.user.user_type
+      }
+    }
+
   },
+  
 };
 </script>
 <style scoped>
