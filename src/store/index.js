@@ -8,8 +8,8 @@ export default createStore({
     Token: null,
   },
   mutations: {
-    setUser: (state, user) => {
-      state.user = user;
+    setUser: (state, user_type) => {
+      state.user = user_type;
     },
     setToken: (state, Token) => {
       state.Token = Token;
