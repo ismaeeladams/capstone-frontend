@@ -8,8 +8,8 @@ export default createStore({
     Token: null,
   },
   mutations: {
-    setUser: (state, user_type) => {
-      state.user = user_type;
+    setUser: (state, user) => {
+      state.user = user;
     },
     setToken: (state, Token) => {
       state.Token = Token;
@@ -33,23 +33,26 @@ export default createStore({
     // },
     login: async (context, payload) => {
       console.log(payload);
-      let res = await fetch("http://localhost:8008/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: payload.email,
-          password: payload.password,
-        }),
-      });
+      let res = await fetch(
+        "https://capstone-booking-api.herokuapp.com/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: payload.email,
+            password: payload.password,
+          }),
+        }
+      );
       let tokendata = await res.json();
       console.log(tokendata);
       if (tokendata.token) {
         context.commit("setToken", tokendata.token);
         // Verify token
         //
-        fetch("http://localhost:8008/users/users/verify", {
+        fetch("https://capstone-booking-api.herokuapp.com/users/users/verify", {
           headers: {
             "Content-Type": "application/json",
             "x-auth-token": `${tokendata.token}`,
@@ -67,7 +70,7 @@ export default createStore({
     },
     // Register
     register: async (context, user) => {
-      fetch("http://localhost:8008/users/register", {
+      fetch("https://capstone-booking-api.herokuapp.com/users/register", {
         method: "POST",
         body: JSON.stringify(user),
 
