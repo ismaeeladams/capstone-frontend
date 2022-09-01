@@ -12,6 +12,9 @@
 
 <script>
 export default {
+  mounted() {
+    this.declareUserType();
+  },
   computed: {
     user() {
       console.log(this.$store.state.user);
@@ -19,6 +22,13 @@ export default {
     },
     user_type() {
       return this.$store.state.user.user_type;
+    },
+  },
+  methods: {
+    declareUserType() {
+      if (this.user) {
+        this.$store.state.user_type = this.user.user_type;
+      }
     },
   },
 };
