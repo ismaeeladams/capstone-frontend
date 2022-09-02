@@ -1,8 +1,6 @@
 <template>
-  <div>
+  <div v-if="user_type === 'admin'">
     <h1>this is where the users table will be held</h1>
-  </div>
-  <div>
     <table class="table">
       <thead class="table-dark">
         <tr>
@@ -24,8 +22,32 @@
       </tbody>
     </table>
   </div>
+  <div v-else>
+    <h1>Log in DUMBASS</h1>
+  </div>
 </template>
 <script>
-export default {};
+export default {
+  mounted() {
+    this.declareUserType();
+  },
+  computed: {
+    // user() {
+    //   return this.$store.state.user;
+    //   console.log(this.$store.state.user);
+    //   console.log(user?.user?.name);
+    // },
+    user_type() {
+      return this.$store.state.user_type;
+    },
+  },
+  methods: {
+    declareUserType() {
+      if (this.user) {
+        this.$store.state.user_type = this.user.user_type;
+      }
+    },
+  },
+};
 </script>
 <style></style>

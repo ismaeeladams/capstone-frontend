@@ -77,7 +77,7 @@ export default {
   methods: {
     Logout() {
       this.$store.commit("Logout");
-      this.$router.push("/");
+      this.$router.push("./");
     },
     declareUserType() {
       if (this.user) {
@@ -94,7 +94,7 @@ export default {
 }
 nav {
   padding: 1rem;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 #nav {
   display: flex;

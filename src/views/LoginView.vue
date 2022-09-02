@@ -22,9 +22,7 @@
         </p>
         <!-- <p><input type="submit" value="Log in" /></p> -->
         <p>
-          <button type="submit" @click.prevent="login">
-            Log in 
-          </button>
+          <button type="submit" @click.prevent="login">Log in</button>
         </p>
         <p v-if="user" class="loged">you have loged in successfully</p>
       </form>
@@ -50,6 +48,7 @@ export default {
         email: this.email,
         password: this.password,
       });
+      this.$router.push("../");
     },
   },
 };

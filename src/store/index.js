@@ -17,7 +17,7 @@ export default createStore({
     },
     Logout(state) {
       (state.user = null), (state.Token = null), (state.user_type = null);
-      window.location.reload();
+      // window.location.reload();
     },
   },
   actions: {
