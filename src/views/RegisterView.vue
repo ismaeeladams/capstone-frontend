@@ -47,32 +47,6 @@
               </div>
               <div class="input">
                 <label id="icon" for="name">
-                  <i class="fa-solid fa-credit-card"></i>
-                </label>
-                <input
-                  v-model="billing_adderss"
-                  type="text"
-                  name="billing_address"
-                  id="billing_address"
-                  placeholder="billing_address"
-                  required
-                />
-              </div>
-              <div class="input">
-                <label id="icon" for="name">
-                  <i class="fa-solid fa-house"></i>
-                </label>
-                <input
-                  v-model="default_shipping_address"
-                  type="text"
-                  name="shipping_address"
-                  id="shipping_address"
-                  placeholder="default_shipping_address"
-                  required
-                />
-              </div>
-              <div class="input">
-                <label id="icon" for="name">
                   <i class="fa-solid fa-phone"></i>
                 </label>
                 <input

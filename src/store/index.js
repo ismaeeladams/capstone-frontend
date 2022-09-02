@@ -6,7 +6,7 @@ export default createStore({
   state: {
     user: null,
     Token: null,
-    user_type:null
+    user_type: null,
   },
   mutations: {
     setUser: (state, user) => {
@@ -16,8 +16,8 @@ export default createStore({
       state.Token = Token;
     },
     Logout(state) {
-      (state.user = null), (state.Token = null),(state.user_type = null);
-    window.location.reload();
+      (state.user = null), (state.Token = null), (state.user_type = null);
+      window.location.reload();
     },
   },
   actions: {
@@ -54,21 +54,23 @@ export default createStore({
         context.commit("setToken", tokendata.token);
         // Verify token
         //
-        await fetch("https://capstone-booking-api.herokuapp.com/users/users/verify", {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": `${tokendata.token}`,
-          },
-        })
+        await fetch(
+          "https://capstone-booking-api.herokuapp.com/users/users/verify",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "x-auth-token": `${tokendata.token}`,
+            },
+          }
+        )
           .then((res) => res.json())
-          .then((userdata) =>  {
-           context.commit("setUser", userdata.user);
+          .then((userdata) => {
+            context.commit("setUser", userdata.user);
             // router.push("/");
             // console.log(data);
           });
 
-
-          window.location.reload();
+        window.location.reload();
       } else {
         alert(tokendata);
       }

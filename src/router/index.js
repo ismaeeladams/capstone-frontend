@@ -56,6 +56,11 @@ const routes = [
     name: "rooms",
     component: () => import("../views/RoomsAdminView.vue"),
   },
+  {
+    path: "/account",
+    name: "account",
+    component: () => import("../views/ProfileView.vue"),
+  },
 ];
 
 const router = createRouter({

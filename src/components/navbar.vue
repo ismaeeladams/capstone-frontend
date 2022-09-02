@@ -24,12 +24,15 @@
               <router-link to="/review">Reviews</router-link>
               <router-link to="/reservation">Reservations</router-link>
               <!-- <router-link to="/selectDate">Date Selection</router-link> -->
+              <router-link to="/account"
+                ><i class="fa-solid fa-user"></i
+              ></router-link>
               <button @click="Logout()">Logout</button>
             </div>
           </div>
         </div>
       </div>
-      <div v-else-if="user_type=== 'admin'">
+      <div v-else-if="user_type === 'admin'">
         <div class="collapse navbar-collapse" id="navs">
           <div class="navbars-nav">
             <div class="logs">
@@ -58,8 +61,8 @@
 </template>
 <script>
 export default {
-  mounted(){
- this.declareUserType()
+  mounted() {
+    this.declareUserType();
   },
   computed: {
     user() {
@@ -67,23 +70,21 @@ export default {
       console.log(this.$store.state.user);
       console.log(user?.user?.name);
     },
-    user_type(){
-       return this.$store.state.user_type;
-    }
+    user_type() {
+      return this.$store.state.user_type;
+    },
   },
   methods: {
     Logout() {
       this.$store.commit("Logout");
       this.$router.push("/");
     },
-    declareUserType(){
-      if(this.user){
-        this.$store.state.user_type = this.user.user_type
+    declareUserType() {
+      if (this.user) {
+        this.$store.state.user_type = this.user.user_type;
       }
-    }
-
+    },
   },
-  
 };
 </script>
 <style scoped>

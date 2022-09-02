@@ -23,8 +23,7 @@
         <!-- <p><input type="submit" value="Log in" /></p> -->
         <p>
           <button type="submit" @click.prevent="login">
-            <!-- <router-link to="/about"> Log in </router-link> -->
-            Log in
+            Log in 
           </button>
         </p>
         <p v-if="user" class="loged">you have loged in successfully</p>
@@ -50,7 +49,7 @@ export default {
       this.$store.dispatch("login", {
         email: this.email,
         password: this.password,
-      }); 
+      });
     },
   },
 };
