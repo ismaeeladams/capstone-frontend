@@ -50,7 +50,7 @@
           <div class="navbars-nav">
             <div class="logs">
               <!-- <router-link to="/">Home</router-link> -->
-              <router-link to="/register">Register</router-link>
+              <router-link to="/users/register">Register</router-link>
               <router-link to="/users/login">Login</router-link>
             </div>
           </div>

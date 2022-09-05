@@ -5,12 +5,17 @@ import createPeristedState from "vuex-persistedstate";
 export default createStore({
   state: {
     user: null,
+    newUser: {},
     Token: null,
     user_type: null,
+    rooms: null,
   },
   mutations: {
     setUser: (state, user) => {
       state.user = user;
+    },
+    setRooms: (state, rooms) => {
+      state.rooms = rooms;
     },
     setToken: (state, Token) => {
       state.Token = Token;
@@ -76,10 +81,15 @@ export default createStore({
       }
     },
     // Register
-    register: async (context, user) => {
+    register: async (context, payload) => {
       fetch("https://capstone-booking-api.herokuapp.com/users/register", {
         method: "POST",
-        body: JSON.stringify(user),
+        body: JSON.stringify({
+          email: payload.email,
+          password: payload.password,
+          full_name: payload.full_name,
+          phone: payload.phone,
+        }),
 
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -92,7 +102,7 @@ export default createStore({
 
     // Create Review
     reviews: async (context, payload) => {
-      fetch("http://localhost:8008/reviews", {
+      fetch("https://capstone-booking-api.herokuapp.com/reviews", {
         method: "POST",
         body: JSON.stringify(payload),
 
@@ -110,16 +120,19 @@ export default createStore({
   seeReview: async (context, payload) => {
     fetch("http://localhost:8008/reviews", {
       method: "GET",
-      body: JSON.stringify(payload),
-
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
       .then((response) => response.json())
-      .then(() => context.commit("setUser", payload));
+      .then((data) => context.commit("setUser", payload));
     console.log("data");
   },
+
+  allRooms: async (context, id) => {
+    fetch();
+  },
+
   modules: {},
   plugins: [createPeristedState()],
 });
