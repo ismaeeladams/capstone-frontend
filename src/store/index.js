@@ -8,13 +8,17 @@ export default createStore({
     newUser: {},
     Token: null,
     user_type: null,
+    rooms: null,
     room: null,
   },
   mutations: {
     setUser: (state, user) => {
-        state.user = user;
+      state.user = user;
     },
-    setRoom: (state, room) => {
+    setRooms: (state, rooms) => {
+      state.rooms = rooms;
+    },
+    setSingleRoom: (state, room) => {
       state.room = room;
     },
     setToken: (state, Token) => {
@@ -82,8 +86,8 @@ export default createStore({
     },
     // Register
     register: async (context, user) => {
-      // fetch("https://capstone-booking-api.herokuapp.com/users/register", {
-      fetch("http://localhost:8008/users/register", {
+      fetch("https://capstone-booking-api.herokuapp.com/users/register", {
+        // fetch("http://localhost:8008/users/register", {
         method: "POST",
         body: JSON.stringify(user),
 
@@ -110,30 +114,36 @@ export default createStore({
         .then(() => context.commit("setUser", payload));
       console.log("data");
     },
-  },
 
-  // Loop/show Review
-  seeReview: async (context, payload) => {
-    fetch("http://localhost:8008/reviews", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => context.commit("setUser", payload));
-    console.log("data");
-  },
+    // Loop/show Review
+    seeReview: async (context, payload) => {
+      fetch("http://localhost:8008/reviews", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => context.commit("setUser", payload));
+      console.log("data");
+    },
 
-  // USERS
-  getRooms: async (context) => {
-    fetch("http://localhost:8008/bookings")
-    
-      .then((res) => res.json())
-      .then((data) => context.commit("setRoom", data))
-      .catch((err) => console.log(err.message));
-  },
+    // All Rooms
+    getRooms: async (context) => {
+      fetch("https://capstone-booking-api.herokuapp.com/bookings")
+        .then((res) => res.json())
+        .then((data) => context.commit("setRooms", data))
+        .catch((err) => console.log(err.message));
+    },
 
+    // Single Room
+    getSingleRooms: async (context, id) => {
+      fetch("https://capstone-booking-api.herokuapp.com/bookings/" + id)
+        .then((res) => res.json())
+        .then((data) => context.commit("setSingleRoom", data))
+        .catch((err) => console.log(err.message));
+    },
+  },
   modules: {},
   plugins: [createPeristedState()],
 });

@@ -1,5 +1,7 @@
 <template>
-  <Navbar />
+  <div class="nav">
+    <Navbar />
+  </div>
   <div class="body">
     <router-view />
   </div>
@@ -16,6 +18,16 @@ export default {
 </script>
 
 <style>
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* html,
+body {
+  overflow-x: hidden;
+} */
+
 .body {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url(https://i.postimg.cc/mg6pmJrt/plain2.jpg);
@@ -36,10 +48,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  /* height: 100vh;
+  width: 99vw; */
 }
+
+/* .nav {
+  height: 10vh;
+} */
 
 nav {
   padding: 30px;
+  /* width: 99vw; */
 }
 
 nav a {

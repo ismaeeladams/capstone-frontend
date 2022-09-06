@@ -93,10 +93,13 @@ export default {
 nav {
   padding: 1rem;
   /* background-color: transparent; */
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 #nav {
   display: flex;
-  /* justify-content: end; */
+  justify-content: end;
 }
 .navbars-nav > * > * {
   padding: 0 0.5rem;

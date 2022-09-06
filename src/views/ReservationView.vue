@@ -2,11 +2,13 @@
   <div>
     <div v-if="user">
       <h1>This is the reservation page</h1>
-      <roomCards
+      <div class="cards">
+        <roomCards
           v-for="booking in room"
-            :key="booking.room_id"
+          :key="booking.room_id"
           :booking="booking"
         />
+      </div>
     </div>
     <div v-else>
       <h1>Log in DUMBASS</h1>
@@ -14,10 +16,14 @@
   </div>
 </template>
 <script>
-import roomCards from "../components/roomCards.vue"
+import roomCards from "../components/roomCards.vue";
 export default {
-  mounted(){
-    this.$store.dispatch("getRoom")
+  components: {
+    roomCards,
+  },
+  // props: ["room"],
+  mounted() {
+    this.$store.dispatch("getRooms");
   },
   computed: {
     user() {
@@ -25,14 +31,10 @@ export default {
       return this.$store.state.user;
     },
     room() {
-      console.log(this.$store.state.room);
-      return this.$store.state.room;
+      // console.log(this.$store.state.rooms);
+      return this.$store.state.rooms;
     },
   },
-  components:{
-    roomCards,
-  },
-  
 };
 </script>
 <style scoped>
@@ -42,7 +44,15 @@ export default {
   justify-content: space-around;
 }
 .card {
-  margin: 0.5rem 0;
+  margin: 0.5rem 0.5rem;
+  /* display: flex; */
+  /* height: ; */
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 .links {
   display: flex;

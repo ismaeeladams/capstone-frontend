@@ -77,8 +77,6 @@
 </template>
 <script>
 export default {
-  
-  
   data() {
     const user_type = "user";
     return {
@@ -104,7 +102,7 @@ export default {
     user() {
       return this.$store.state.user;
     },
-    },
+  },
 };
 </script>
 <style scoped>

@@ -61,6 +61,12 @@ const routes = [
     name: "account",
     component: () => import("../views/ProfileView.vue"),
   },
+  {
+    path: "/reservation/:id",
+    name: "singleView",
+    component: () => import("../views/roomSingleCard.vue"),
+    props: true,
+  },
 ];
 
 const router = createRouter({

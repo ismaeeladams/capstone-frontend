@@ -1,33 +1,29 @@
 <template>
   <div class="card" style="width: 21rem">
-      <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              v-bind:src="room.image"
-              class="d-block w-100"
-              alt="..."
-            />
+    <div
+      id="carouselExampleControls"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img v-bind:src="booking.image" class="d-block w-100" alt="It's " />
         </div>
-          <div class="carousel-item ">
-            <img
-              v-bind:src="room.image_2"
-              class="d-block w-100"
-              alt="..."
-            />
+        <div class="carousel-item">
+          <img
+            v-bind:src="booking.image_2"
+            class="d-block w-100"
+            alt="I'll put something in later"
+          />
         </div>
-          <div class="carousel-item ">
-            <img
-              v-bind:src="room.image_3"
-              class="d-block w-100"
-              alt="..."
-            />
+        <div class="carousel-item">
+          <img
+            v-bind:src="booking.image_3"
+            class="d-block w-100"
+            alt="I'll put something in later 2nd"
+          />
         </div>
-        <button
+        <!-- <button
           class="carousel-control-prev bg-dark"
           type="button"
           data-bs-target="#carouselExampleControls"
@@ -44,15 +40,20 @@
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
-        </button>
+        </button> -->
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{room.name}}</h5>
+        <h5 class="card-title">{{ booking.name }}</h5>
         <p class="card-text">
-          {{room.description}}
+          {{ booking.description }}
         </p>
         <div class="links">
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <router-link
+            :to="{ name: 'singleView', params: { id: booking.room_id } }"
+          >
+            <!-- <router-link to="/singleView"> -->
+            Go somewhere</router-link
+          >
           <router-link to="/selectDate"> Reserve </router-link>
         </div>
       </div>
@@ -62,10 +63,13 @@
 
 <script>
 export default {
-    props: ["booking"],
-}
+  // props: ["rooms"],
+  props: ["booking"],
+};
 </script>
 
 <style>
-
+.d-block {
+  height: 21rem;
+}
 </style>
