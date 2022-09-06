@@ -8,14 +8,14 @@ export default createStore({
     newUser: {},
     Token: null,
     user_type: null,
-    rooms: null,
+    room: null,
   },
   mutations: {
     setUser: (state, user) => {
-      state.user = user;
+        state.user = user;
     },
-    setRooms: (state, rooms) => {
-      state.rooms = rooms;
+    setRoom: (state, room) => {
+      state.room = room;
     },
     setToken: (state, Token) => {
       state.Token = Token;
@@ -81,15 +81,11 @@ export default createStore({
       }
     },
     // Register
-    register: async (context, payload) => {
-      fetch("https://capstone-booking-api.herokuapp.com/users/register", {
+    register: async (context, user) => {
+      // fetch("https://capstone-booking-api.herokuapp.com/users/register", {
+      fetch("http://localhost:8008/users/register", {
         method: "POST",
-        body: JSON.stringify({
-          email: payload.email,
-          password: payload.password,
-          full_name: payload.full_name,
-          phone: payload.phone,
-        }),
+        body: JSON.stringify(user),
 
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -129,8 +125,13 @@ export default createStore({
     console.log("data");
   },
 
-  allRooms: async (context, id) => {
-    fetch();
+  // USERS
+  getRooms: async (context) => {
+    fetch("http://localhost:8008/bookings")
+    
+      .then((res) => res.json())
+      .then((data) => context.commit("setRoom", data))
+      .catch((err) => console.log(err.message));
   },
 
   modules: {},

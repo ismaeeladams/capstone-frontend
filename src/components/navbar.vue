@@ -67,8 +67,6 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
-      console.log(this.$store.state.user);
-      console.log(user?.user?.name);
     },
     user_type() {
       return this.$store.state.user_type;

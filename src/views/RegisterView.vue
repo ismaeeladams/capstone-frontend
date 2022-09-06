@@ -77,20 +77,16 @@
 </template>
 <script>
 export default {
-  computed: {
-    user() {
-      return this.$store.state.user;
-    },
-  },
+  
+  
   data() {
     const user_type = "user";
     return {
       full_name: "",
       email: "",
       password: "",
-      billing_address: "",
-      default_shipping_address: "",
       phone: "",
+      image: "nothing",
     };
   },
   methods: {
@@ -99,12 +95,16 @@ export default {
         full_name: this.full_name,
         email: this.email,
         password: this.password,
-        billing_address: this.billing_address,
-        default_shipping_address: this.default_shipping_address,
         phone: this.phone,
+        image: this.image,
       });
     },
   },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    },
 };
 </script>
 <style scoped>
