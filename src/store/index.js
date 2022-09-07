@@ -30,18 +30,6 @@ export default createStore({
     },
   },
   actions: {
-    // Login
-    // login: async (context, payload) => {
-    //   const { email, password } = payload;
-    //   const response = await fetch(
-    //     `http://localhost:8008/users/?email=${email}&password=${password}`
-    //   );
-    //   const userData = await response.json();
-    //   if (userData.length) {
-    //     context.commit("setUser", userData);
-    //   }
-    //   if (!userData.length) return alert("No user found");
-    // },
     login: async (context, payload) => {
       console.log(payload);
       let res = await fetch(
@@ -99,7 +87,6 @@ export default createStore({
         .then((json) => context.commit("setUser", json));
       console.log("data");
     },
-
     // Create Review
     reviews: async (context, payload) => {
       fetch("https://capstone-booking-api.herokuapp.com/reviews", {
@@ -114,7 +101,6 @@ export default createStore({
         .then(() => context.commit("setUser", payload));
       console.log("data");
     },
-
     // Loop/show Review
     seeReview: async (context, payload) => {
       fetch("http://localhost:8008/reviews", {
@@ -127,7 +113,6 @@ export default createStore({
         .then((data) => context.commit("setUser", payload));
       console.log("data");
     },
-
     // All Rooms
     getRooms: async (context) => {
       fetch("https://capstone-booking-api.herokuapp.com/bookings")
@@ -135,7 +120,6 @@ export default createStore({
         .then((data) => context.commit("setRooms", data))
         .catch((err) => console.log(err.message));
     },
-
     // Single Room
     getSingleRooms: async (context, id) => {
       fetch("https://capstone-booking-api.herokuapp.com/bookings/" + id)

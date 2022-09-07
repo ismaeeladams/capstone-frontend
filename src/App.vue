@@ -48,13 +48,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* height: 100vh;
-  width: 99vw; */
+  height: 100vh;
+  /* width: 99vw; */
 }
 
-/* .nav {
-  height: 10vh;
-} */
+.nav {
+  height: 8vh;
+}
 
 nav {
   padding: 30px;

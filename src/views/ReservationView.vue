@@ -2,6 +2,10 @@
   <div>
     <div v-if="user">
       <h1>This is the reservation page</h1>
+      <p>
+        Before continuing
+        <button @click="refresh()">click me</button>
+      </p>
       <div class="cards">
         <roomCards
           v-for="booking in room"
@@ -33,6 +37,10 @@ export default {
     room() {
       // console.log(this.$store.state.rooms);
       return this.$store.state.rooms;
+      window.location.reload();
+    },
+    refresh() {
+      window.location.reload();
     },
   },
 };

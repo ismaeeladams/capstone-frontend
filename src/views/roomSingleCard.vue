@@ -1,8 +1,17 @@
 <template>
   <div class="room_card_holder">
     <h1>this is the single card view</h1>
+    <p>
+      Before continuing
+      <button @click="refresh()">click me</button>
+    </p>
     <!-- <room v-for="room in rooms" :key="room.room_id" :room="room" /> -->
-    <div v-for="booking in booking" :key="booking.room_id" :booking="booking">
+    <div
+      v-for="booking in booking"
+      :key="booking.room_id"
+      :booking="booking"
+      class="cont"
+    >
       <div class="card" style="width: 21rem">
         <div
           id="carouselExampleControls"
@@ -72,10 +81,21 @@ export default {
     booking() {
       return this.$store.state.room;
     },
+    refresh() {
+      window.location.reload();
+    },
   },
   mounted() {
     this.$store.dispatch("getSingleRooms", this.id);
   },
 };
 </script>
-<style></style>
+<style>
+.cont {
+  display: flex;
+  justify-content: center;
+}
+.d-block {
+  height: 21rem;
+}
+</style>

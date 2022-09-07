@@ -75,7 +75,7 @@ export default {
   methods: {
     Logout() {
       this.$store.commit("Logout");
-      this.$router.push("./");
+      // this.$router.push("./");
     },
     declareUserType() {
       if (this.user) {
