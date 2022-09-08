@@ -9,16 +9,12 @@
           <th>Phone</th>
           <th>User Type</th>
           <th>Image</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody class="table-dark">
-        <tr>
-          <td>someone@gmail.com</td>
-          <td>Someone Yet No one</td>
-          <td>012 354 8869</td>
-          <td>user</td>
-          <td>of something</td>
-        </tr>
+        <adminUser v-for="user in users" :key="user.user_id" :user="user" />
       </tbody>
     </table>
   </div>
@@ -27,9 +23,14 @@
   </div>
 </template>
 <script>
+import adminUser from "../components/adminUserTable.vue";
 export default {
+  components: {
+    adminUser,
+  },
   mounted() {
     this.declareUserType();
+    this.$store.dispatch("getUsers");
   },
   computed: {
     // user() {
@@ -39,6 +40,10 @@ export default {
     // },
     user_type() {
       return this.$store.state.user_type;
+    },
+    users() {
+      // console.log(this.$store.state.rooms);
+      return this.$store.state.user;
     },
   },
   methods: {

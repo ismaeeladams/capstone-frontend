@@ -6,7 +6,12 @@
       <button @click="refresh()">click me</button>
     </p>
     <!-- <room v-for="room in rooms" :key="room.room_id" :room="room" /> -->
-    <div v-for="room in room" :key="room.room_id" :room="room" class="cont">
+    <div
+      v-for="booking in room"
+      :key="booking.room_id"
+      :booking="booking"
+      class="cont"
+    >
       <div class="card" style="width: 21rem">
         <div
           id="carouselExampleControls"

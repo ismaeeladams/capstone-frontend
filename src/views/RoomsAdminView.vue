@@ -11,18 +11,18 @@
           <th>Image</th>
           <th>Description</th>
           <th>Type</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody class="table-dark">
-        <tr>
-          <td>2</td>
-          <td>a room reservation</td>
-          <td>1</td>
-          <td>12 500</td>
-          <td>the pic</td>
-          <td>A long description</td>
-          <td>lounge</td>
-        </tr>
+        <!-- <tr> -->
+        <adminRoomTable
+          v-for="booking in room"
+          :key="booking.room_id"
+          :booking="booking"
+        />
+        <!-- </tr>  -->
       </tbody>
     </table>
   </div>
@@ -31,9 +31,14 @@
   </div>
 </template>
 <script>
+import adminRoomTable from "../components/adminRoomTable.vue";
 export default {
+  components: {
+    adminRoomTable,
+  },
   mounted() {
     this.declareUserType();
+    this.$store.dispatch("getRooms");
   },
   computed: {
     // user() {
@@ -43,6 +48,10 @@ export default {
     // },
     user_type() {
       return this.$store.state.user_type;
+    },
+    room() {
+      // console.log(this.$store.state.rooms);
+      return this.$store.state.rooms;
     },
   },
   methods: {
@@ -54,4 +63,8 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.table {
+  width: 100%;
+}
+</style>

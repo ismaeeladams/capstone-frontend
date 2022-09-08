@@ -5,7 +5,6 @@ import createPeristedState from "vuex-persistedstate";
 export default createStore({
   state: {
     user: null,
-    newUser: {},
     Token: null,
     user_type: null,
     rooms: null,
@@ -26,6 +25,7 @@ export default createStore({
     },
     Logout(state) {
       (state.user = null), (state.Token = null), (state.user_type = null);
+      state.rooms = null;
       // window.location.reload();
     },
   },
@@ -115,16 +115,23 @@ export default createStore({
     },
     // All Rooms
     getRooms: async (context) => {
-      fetch("https://capstone-booking-api.herokuapp.com/")
+      fetch("https://capstone-booking-api.herokuapp.com/rooms")
         .then((res) => res.json())
         .then((data) => context.commit("setRooms", data))
         .catch((err) => console.log(err.message));
     },
     // Single Room
     getSingleRooms: async (context, id) => {
-      fetch("https://capstone-booking-api.herokuapp.com//" + id)
+      fetch("https://capstone-booking-api.herokuapp.com/rooms/" + id)
         .then((res) => res.json())
         .then((data) => context.commit("setSingleRoom", data))
+        .catch((err) => console.log(err.message));
+    },
+    // All Users
+    getUsers: async (context) => {
+      fetch("https://capstone-booking-api.herokuapp.com/users")
+        .then((res) => res.json())
+        .then((data) => context.commit("setUser", data))
         .catch((err) => console.log(err.message));
     },
   },
