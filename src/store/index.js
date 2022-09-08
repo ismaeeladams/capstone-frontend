@@ -115,14 +115,14 @@ export default createStore({
     },
     // All Rooms
     getRooms: async (context) => {
-      fetch("https://capstone-booking-api.herokuapp.com/bookings")
+      fetch("https://capstone-booking-api.herokuapp.com/")
         .then((res) => res.json())
         .then((data) => context.commit("setRooms", data))
         .catch((err) => console.log(err.message));
     },
     // Single Room
     getSingleRooms: async (context, id) => {
-      fetch("https://capstone-booking-api.herokuapp.com/bookings/" + id)
+      fetch("https://capstone-booking-api.herokuapp.com//" + id)
         .then((res) => res.json())
         .then((data) => context.commit("setSingleRoom", data))
         .catch((err) => console.log(err.message));

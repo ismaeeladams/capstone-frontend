@@ -6,12 +6,7 @@
       <button @click="refresh()">click me</button>
     </p>
     <!-- <room v-for="room in rooms" :key="room.room_id" :room="room" /> -->
-    <div
-      v-for="booking in booking"
-      :key="booking.room_id"
-      :booking="booking"
-      class="cont"
-    >
+    <div v-for="room in room" :key="room.room_id" :room="room" class="cont">
       <div class="card" style="width: 21rem">
         <div
           id="carouselExampleControls"
@@ -78,7 +73,7 @@
 export default {
   props: ["id"],
   computed: {
-    booking() {
+    room() {
       return this.$store.state.room;
     },
     refresh() {
