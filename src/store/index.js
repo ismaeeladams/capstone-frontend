@@ -5,6 +5,8 @@ import createPeristedState from "vuex-persistedstate";
 export default createStore({
   state: {
     user: null,
+    users: null,
+    review: null,
     Token: null,
     user_type: null,
     rooms: null,
@@ -13,6 +15,12 @@ export default createStore({
   mutations: {
     setUser: (state, user) => {
       state.user = user;
+    },
+    setReview: (state, review) => {
+      state.review = review;
+    },
+    setUsers: (state, users) => {
+      state.users = users;
     },
     setRooms: (state, rooms) => {
       state.rooms = rooms;
@@ -98,19 +106,7 @@ export default createStore({
         },
       })
         .then((response) => response.json())
-        .then(() => context.commit("setUser", payload));
-      console.log("data");
-    },
-    // Loop/show Review
-    seeReview: async (context, payload) => {
-      fetch("http://localhost:8008/reviews", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => context.commit("setUser", payload));
+        .then(() => context.commit("setReview", payload));
       console.log("data");
     },
     // All Rooms
@@ -127,11 +123,53 @@ export default createStore({
         .then((data) => context.commit("setSingleRoom", data))
         .catch((err) => console.log(err.message));
     },
+    // Create Rooms
+    createRooms: async (context, room) => {
+      fetch("https://capstone-booking-api.herokuapp.com/rooms", {
+        method: "POST",
+        body: JSON.stringify(room),
+
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(() => context.dispatch("getRooms", room));
+      console.log(room);
+    },
+    // Create Rooms
+    editRooms: async (context, room) => {
+      fetch("https://capstone-booking-api.herokuapp.com/rooms/" + id, {
+        method: "PUT",
+        body: JSON.stringify(room),
+
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(() => context.dispatch("getRoom", room));
+      console.log(room);
+    },
+    // Create Rooms
+    deleteRooms: async (context, room) => {
+      fetch("https://capstone-booking-api.herokuapp.com/rooms/" + id, {
+        method: "DELETE",
+        body: JSON.stringify(room),
+
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then(() => context.dispatch("getRoom", room));
+      console.log(room);
+    },
     // All Users
     getUsers: async (context) => {
       fetch("https://capstone-booking-api.herokuapp.com/users")
         .then((res) => res.json())
-        .then((data) => context.commit("setUser", data))
+        .then((data) => context.commit("setUsers", data))
         .catch((err) => console.log(err.message));
     },
   },

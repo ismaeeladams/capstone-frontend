@@ -33,17 +33,17 @@ export default {
     this.$store.dispatch("getUsers");
   },
   computed: {
-    // user() {
-    //   return this.$store.state.user;
-    //   console.log(this.$store.state.user);
-    //   console.log(user?.user?.name);
-    // },
+    user() {
+      // console.log(this.$store.state.user);
+      return this.$store.state.user;
+      console.log(user?.user?.name);
+    },
     user_type() {
       return this.$store.state.user_type;
     },
     users() {
       // console.log(this.$store.state.rooms);
-      return this.$store.state.user;
+      return this.$store.state.users;
     },
   },
   methods: {

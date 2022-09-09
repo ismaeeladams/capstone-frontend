@@ -63,9 +63,13 @@
               <p>
                 By clicking Register, you agree on our
                 <a href="#">terms and condition</a>.
+                <router-link to="/terms and conditions"
+                  >terms and condition</router-link
+                >
               </p>
               <button type="submit" class="button">Register</button>
             </div>
+            <router-link to="/users/login">Already have an account</router-link>
           </form>
           <div v-if="user">
             <p>you have been successfully register</p>

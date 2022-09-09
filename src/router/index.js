@@ -67,6 +67,12 @@ const routes = [
     component: () => import("../views/roomSingleCard.vue"),
     props: true,
   },
+  {
+    path: "/terms and conditions",
+    name: "Terms & Conditions",
+    component: () => import("../views/Ts&CsView.vue"),
+    props: true,
+  },
 ];
 
 const router = createRouter({

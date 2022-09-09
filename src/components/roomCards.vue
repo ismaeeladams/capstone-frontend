@@ -54,7 +54,7 @@
             <!-- <router-link to="/singleView"> -->
             Go somewhere</router-link
           >
-          <router-link to="/selectDate"> Reserve </router-link>
+          <router-link to="/checkout"> Reserve </router-link>
         </div>
       </div>
     </div>
@@ -71,5 +71,8 @@ export default {
 <style>
 .d-block {
   height: 21rem;
+}
+.card-body {
+  color: black !important;
 }
 </style>

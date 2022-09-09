@@ -25,6 +25,7 @@
           <button type="submit" @click.prevent="login">Log in</button>
         </p>
         <p v-if="user" class="loged">you have loged in successfully</p>
+        <router-link to="/users/register">Create a new Account</router-link>
       </form>
     </div>
   </div>

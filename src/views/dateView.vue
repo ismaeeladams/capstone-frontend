@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Abu is a bitch</h1>
     <h3>Range</h3>
     <div class="ui form">
       <div class="two fields">

@@ -55,24 +55,31 @@
     <div class="bottom">
       <div class="details">
         <h3>Name</h3>
-        <p>the name should be displayed here</p>
+        <p>{{ user.full_name }}</p>
       </div>
       <hr />
       <div class="details">
         <h3>Contact</h3>
-        <p>the name should be displayed here</p>
+        <p>{{ user.phone }}</p>
       </div>
       <hr />
       <div class="details">
         <h3>Email</h3>
-        <p>the name should be displayed here</p>
+        <p>{{ user.email }}</p>
       </div>
       <hr />
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: ["user"],
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+};
 </script>
 <style scoped>
 .container > * {
