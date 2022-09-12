@@ -6,11 +6,25 @@
         <h1>About us</h1>
         <div>
           <p>
-            This hotel was the last and final wish of the founders grand-father.It was founderd in the late 1960's as a simple BnB that soon became what it is today.
-            Now we bost a staggering number of 300 staff and 
+            This hotel was the last and final wish of the founders
+            grand-father.It was founderd in the late 1960's as a simple BnB that
+            soon became what it is today. Now we bost a staggering number of 300
+            staff and
           </p>
         </div>
       </div>
+      <form action="https://formspree.io/f/xoqrkjbg" method="POST">
+        <label>
+          Your email:
+          <input type="email" name="email" />
+        </label>
+        <label>
+          Your message:
+          <textarea name="message"></textarea>
+        </label>
+        <!-- your other form fields go here -->
+        <button type="submit">Send</button>
+      </form>
     </div>
     <div v-else>
       <h1>Log in DUMBASS</h1>
