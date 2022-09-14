@@ -139,17 +139,20 @@ export default createStore({
     },
     // Create Rooms
     editRooms: async (context, room) => {
-      fetch("https://capstone-booking-api.herokuapp.com/rooms/" + id, {
-        method: "PUT",
+      let data = JSON.parse(localStorage.vuex);
+      // fetch("https://capstone-booking-api.herokuapp.com/rooms/" + room.id, {
+      fetch("http://localhost:8008/rooms/" + room.room_id, {
+        method: "PATCH",
         body: JSON.stringify(room),
-
+        mode: "no-cors",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          "x-auth-token": data.Token,
         },
       })
         .then((response) => response.json())
-        .then(() => context.dispatch("getRoom", room));
-      console.log(room);
+        .then(() => context.dispatch("getRooms", room));
+      console.log(data);
     },
     // Create Rooms
     deleteRooms: async (context, room) => {
